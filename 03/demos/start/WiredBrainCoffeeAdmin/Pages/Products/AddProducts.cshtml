@@ -1,0 +1,44 @@
+@page
+@model AddProductsModel
+@{
+    ViewData["Title"] = "Add Products";
+}
+
+<div class="container dashboard">
+    <h1>Add Products</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="NewProduct.Name">Name</label>
+                    <input asp-for="NewProduct.Name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="NewProduct.ShortDescription">ShortDescription</label>
+                    <input asp-for="NewProduct.ShortDescription" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="NewProduct.Description">Description</label>
+                    <textarea asp-for="NewProduct.Description" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="NewProduct.Price">Price</label>
+                    <input asp-for="NewProduct.Price" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="NewProduct.Category">Category</label>
+                    <select asp-for="NewProduct.Category" class="form-control">
+                        <option value="Beverages">Beverages</option>
+                        <option value="Food">Food</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section RightFooter 
+{
+    <img src="~/images/menu/cappucino.png" alt="">
+}

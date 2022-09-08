@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid dashboard">
+    <h1 class="h2">Welcome to Wired Brain Coffee!</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Latest Survey Results</h2>
+            <table class="table table-striped table-bordered">
+                @foreach (var item in Model.SurveyResults)
+                {
+                    <tr>
+                        <td>@item.Question</td>
+                        <td>@item.Answer</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-6">
+
+            <div class="card">
+                <div class="card-header">
+                    Info
+                </div>
+                <div class="card-body">
+                    <p>Today's date is @(DateTime.Today.Date.ToString("mm/dd/yyyy"))</p>
+                    @{
+                        string firstName = "Anthony";
+                        int temp = 25;
+                    }
+                    <p>
+                        Hello my name is @firstName and I will be updating you on what going on. Grap a coffee and relax, 
+                        the current temperature is @temp degrees'.
+                    </p>
+                    @if(temp < 35)
+                    {
+                        <p>We recomend an amberra before it warmp up
+                            @(35 - temp);
+                        </p>
+                    }
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Request Help
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Contact our IT Team</h5>
+                    <p class="card-text">Having an issue with the site? Let us know!</p>
+                    <a asp-page="help" class="btn btn-success">Request Help</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
